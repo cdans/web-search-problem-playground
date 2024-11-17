@@ -1,0 +1,19 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+html {
+	@apply text-dark bg-white antialiased;
+}
+
+body {
+	@apply dark:bg-dark bg-white text-black transition-colors duration-300 dark:text-white;
+}
+
+h1 {
+	@apply text-4xl font-bold md:text-6xl;
+}
+
+h2 {
+	@apply text-3xl font-bold md:text-4xl;
+}
