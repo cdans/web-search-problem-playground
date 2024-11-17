@@ -5,6 +5,8 @@
 	// 👇 this is important! You need to import the styles for Svelte Flow to work
 	import '@xyflow/svelte/dist/style.css';
 
+	import { darkMode } from '$lib/stores/theme';
+
 	// We are using writables for the nodes and edges to sync them easily. When a user drags a node for example, Svelte Flow updates its position.
 	const nodes = writable([
 		{
@@ -44,6 +46,7 @@ This means that the parent container needs a height to render the flow.
 		{nodes}
 		{edges}
 		{snapGrid}
+		colorMode={$darkMode ? 'dark' : 'light'}
 		fitView
 		on:nodeclick={(event) => console.log('on node click', event.detail.node)}
 	>

@@ -14,6 +14,10 @@ body {
 	@apply dark:bg-dark bg-white text-black dark:text-white;
 }
 
+.prose {
+	@apply dark:prose-invert;
+}
+
 h1 {
 	@apply text-4xl font-bold md:text-6xl;
 }
