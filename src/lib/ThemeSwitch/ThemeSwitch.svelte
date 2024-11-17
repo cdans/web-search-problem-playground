@@ -1,12 +1,30 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
+
 	let darkMode = false;
 
 	function handleSwitchDarkMode() {
 		darkMode = !darkMode;
 
+		localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+
 		darkMode
 			? document.documentElement.classList.add('dark')
 			: document.documentElement.classList.remove('dark');
+	}
+
+	if (browser) {
+		const isThemeStored = !('theme' in localStorage);
+		const isStoredThemeDark = localStorage.theme === 'dark';
+		const isDarkModePreferred = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+		if (isStoredThemeDark || (isThemeStored && isDarkModePreferred)) {
+			document.documentElement.classList.add('dark');
+			darkMode = true;
+		} else {
+			document.documentElement.classList.remove('dark');
+			darkMode = false;
+		}
 	}
 </script>
 

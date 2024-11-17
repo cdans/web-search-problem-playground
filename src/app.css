@@ -7,7 +7,11 @@ html {
 }
 
 body {
-	@apply dark:bg-dark bg-white text-black transition-colors duration-300 dark:text-white;
+	transition:
+		background-color 0.3s ease-in-out,
+		color 0.3s ease-in-out;
+
+	@apply dark:bg-dark bg-white text-black dark:text-white;
 }
 
 h1 {
